@@ -1,0 +1,28 @@
+{{template "layout.html" .}}
+
+{{define "title"}}Blog{{end}}
+
+{{define "feed"}}
+<link rel="alternate" type="application/atom+xml" title="Blog Feed" href="{{.Feed}}">
+{{end}}
+
+{{ define "content" }}
+<article>
+	<div class="content">
+		<h1 class="header">Blog</h1>
+		{{range .Blogs}}
+		<div>
+			<a href="{{.URL}}">
+				<h2>{{.Title}}</h2>
+			</a>
+			<div class="metadata">
+				<span>{{.Date | dateTime}}</span>
+			</div>
+			{{.Excerpt | noEscape}}
+		</div>
+		{{else}}
+		<p>Nothing here.</p>
+		{{end}}
+	</div>
+</article>
+{{end}}

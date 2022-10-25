@@ -1,0 +1,22 @@
+{{template "layout.html" .}}
+
+{{define "title"}}{{.Blog.Title}}{{end}}
+
+{{define "feed"}}
+<link rel="alternate" type="application/atom+xml" title="MetWord Blog" href="{{.Feed}}">
+{{end}}
+
+{{ define "content" }}
+<article>
+	{{with .Blog}}
+	<div class="content">
+		<div class="header">
+			<h2>{{.Title}}</h2>
+			<span>{{.Date | dateTime}}</span>
+		</div>
+
+		{{.Content | noEscape}}
+	</div>
+	{{end}}
+</article>
+{{end}}

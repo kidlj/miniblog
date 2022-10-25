@@ -27,5 +27,8 @@ func main() {
 	blogHandler := blog.NewHandler(blogService)
 	blogHandler.InstallRoutes(e)
 
-	_ = e.Start(blog.BLOG_LISTEN_ADDR)
+	err := e.Start(blog.BLOG_LISTEN_ADDR)
+	if err != nil {
+		panic(err)
+	}
 }

@@ -7,7 +7,9 @@
 	<meta name="viewport" content="width=device-width" />
 	<title>{{block "title" .}}{{end}}</title>
 	<link rel="stylesheet" href="/static/bin/style.css">
-	{{block "feed" .}}{{end}}
+	{{if .Feed}}
+	<link rel="alternate" type="application/atom+xml" title="Blog Feed" href="{{.Feed}}">
+	{{end}}
 </head>
 
 <body>
